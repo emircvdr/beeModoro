@@ -1,5 +1,5 @@
 {
-  "appId": "com.beem-timer.app",
+  "appId": "com.beeModoro.app",
   "files": ["dist-electron", "dist-react"],
   "icon": "./desktopIcon.png",
   "mac": {
