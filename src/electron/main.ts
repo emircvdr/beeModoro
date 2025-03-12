@@ -6,8 +6,9 @@ type test = string;
 
 app.on("ready", () => {
   const mainWindow = new BrowserWindow({
-    width: 600,
-    height: 600,
+    width: 500,
+    height: 800,
+    resizable: false,
   });
   if (isDev()) {
     mainWindow.loadURL("http://localhost:5123");
