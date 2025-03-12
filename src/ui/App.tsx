@@ -8,6 +8,7 @@ import { useState } from 'react'
 function App() {
   const [selectedTime, setSelectedTime] = useState<number | null>(null)
   const [isTimerFinished, setIsTimerFinished] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [stopTime, setStopTime] = useState(true)
   return (
     <div className='w-screen h-screen bg-[#efefef]'>
@@ -32,7 +33,6 @@ function App() {
           )
         ) : (
           <TimeSelectContent
-            selectedTime={selectedTime}
             setSelectedTime={setSelectedTime}
           />
         )}

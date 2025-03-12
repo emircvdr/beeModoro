@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import catGif from "../ui/assets/waitingCat.gif"
 import { useState } from "react";
 
-export default function TimeSelectContent({ selectedTime, setSelectedTime }: { selectedTime: number, setSelectedTime: (time: number) => void }) {
+export default function TimeSelectContent({ setSelectedTime }: { setSelectedTime: (time: number) => void }) {
     const buttons = [5, 20, 40, 60]
     const [tempSelectedTime, setTempSelectedTime] = useState<number | null>(null)
 
