@@ -16,13 +16,24 @@ import {
 } from "@/components/ui/drawer"
 import { Slider } from "@/components/ui/slider"
 
+interface FooterProps {
+    setSelectedTime: (time: number) => void;
+}
 
-export default function Footer() {
+export default function Footer({ setSelectedTime }: FooterProps) {
+    const [time, setTime] = React.useState(5)
+    const [open, setOpen] = React.useState(false)
 
-    const [time, setTime] = React.useState(0)
+    const handleDone = () => {
+        if (time > 0) {
+            setSelectedTime(time)
+            setOpen(false)
+            setTime(5)
+        }
+    }
 
     return (
-        <Drawer>
+        <Drawer open={open} onOpenChange={setOpen}>
             <DrawerTrigger asChild>
                 <Button variant="ghost" size="icon" className="fixed bottom-0 p-0.5 w-full !bg-transparent !border-none hover:!bg-slate-300 !transition-all !duration-300">
                     <ArrowUp />
@@ -44,8 +55,13 @@ export default function Footer() {
 
                     </div>
                     <DrawerFooter className="mt-3">
-                        <Button variant="outline" className="bg-transparent text-black border-black cursor-pointer">Done</Button>
-
+                        <Button
+                            variant="outline"
+                            className="bg-transparent text-black border-black cursor-pointer"
+                            onClick={handleDone}
+                        >
+                            Done
+                        </Button>
                     </DrawerFooter>
                 </div>
             </DrawerContent>

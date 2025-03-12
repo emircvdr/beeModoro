@@ -2,8 +2,17 @@ import { Button } from "@/components/ui/button";
 import catGif from "../ui/assets/sleepingCat.gif"
 import { RefreshCwIcon } from "lucide-react";
 
+interface BreakingContentProps {
+    setStopTime: (stopTime: boolean) => void;
+    setIsTimerFinished: (isTimerFinished: boolean) => void;
+    setSelectedTime: (selectedTime: null) => void;
+}
 
-export default function BreakingContent() {
+export default function BreakingContent({
+    setStopTime,
+    setIsTimerFinished,
+    setSelectedTime
+}: BreakingContentProps) {
     return (
         <div className="w-full h-full flex flex-col gap-5 items-center justify-center">
             <img src={catGif} alt="cat" className="w-1/3 h-1/3" />
@@ -15,12 +24,18 @@ export default function BreakingContent() {
             </div>
 
             <div className="flex flex-row gap-4">
-                <Button size="icon" className="text-white !bg-red-400 cursor-pointer w-16 h-16" >
+                <Button
+                    size="icon"
+                    className="text-white !bg-red-400 cursor-pointer w-16 h-16"
+                    onClick={() => {
+                        setStopTime(true);
+                        setIsTimerFinished(false);
+                        setSelectedTime(null);
+                    }}
+                >
                     <RefreshCwIcon className="w-4 h-4" />
                 </Button>
-
             </div>
-
         </div>
     )
 }
